@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 75px);
+    grid-template-rows: repeat(6, 75px);
+    width: 525px;
+    height: 450px;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: black;
+}
+
+.grid-cell {
+    border: 5px dashed orange;
+    background-color: white;
+    border-radius: 50%;
+    }
+
+.grid-cell:hover {
+    background-color: rgba(229, 117, 12, 0.818);
+}
+
+.player {
+    background-color: Red;
+}
+
+.computer {
+    background-color: blue;
+}
