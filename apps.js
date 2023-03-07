@@ -7,6 +7,8 @@ let beginGame = true;
 let computer = document.querySelector('.computer');
 let player = document.querySelector('.player');
 
+let currentUser = 1;
+
 const playingBoard = document.querySelector('.grid div');
 playingBoard.addEventListener('click', function(){
     alert(`click`);
@@ -18,7 +20,6 @@ rematchButton.addEventListener('click', function(){
     alert(`click`)
     return newBoard;
 });
-let currentUser = 1;
 
 const choiceEls = document.querySelectorAll('.grid-cell div');
 
