@@ -33,14 +33,6 @@ h2 {
     background-color: rgba(229, 117, 12, 0.818);
 }
 
-.player {
-    background-color: Red;
-}
-
-.computer {
-    background-color: blue;
-}
-
 .taken {
     background-color: white;
 }
