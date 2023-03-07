@@ -7,6 +7,10 @@ body {
     margin: 0 auto;
     text-align: center;
 }
+h2 {
+    width: 50px;
+    height: 40px;
+}
 
 .grid {
     display: grid;
@@ -35,4 +39,8 @@ body {
 
 .computer {
     background-color: blue;
+}
+
+.taken {
+    background-color: white;
 }
