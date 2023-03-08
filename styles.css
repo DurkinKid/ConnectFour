@@ -7,12 +7,16 @@ body {
     margin: 0 auto;
     text-align: center;
 }
-h2 {
-    width: 50px;
-    height: 40px;
+* {
+    box-sizing: border-box;
 }
 
-.grid {
+body {
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+.board {  
     display: grid;
     grid-template-columns: repeat(7, 75px);
     grid-template-rows: repeat(6, 75px);
@@ -20,19 +24,30 @@ h2 {
     height: 450px;
     margin: 0 auto;
     justify-content: center;
-    background-color: black;
+    background-color: black; 
+} 
+.board div { 
+height: 75px; 
+width: 75px; 
+margin: 0 auto;
+border-radius: 50%; 
 }
 
-.grid-cell {
-    border: 5px dashed orange;
-    background-color: white;
-    border-radius: 50%;
-    }
-
-.grid-cell:hover {
-    background-color: rgba(229, 117, 12, 0.818);
+.square{ 
+background:white; 
+} 
+.taken { 
+background-color: white;
+} 
+.player-one { 
+background:red;
 }
-
-.taken {
-    background-color: white;
+.player-two { 
+background:blue;
+}
+.restart{ 
+background: red;   
+display: flex; 
+justify-content: center; 
+align-items: center; 
 }
