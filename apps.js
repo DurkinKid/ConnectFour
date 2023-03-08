@@ -2,6 +2,7 @@ let board=document.querySelector(".board")
 let player=document.querySelector(".player") 
 let playAgain=document.querySelector(".playAgain") 
 let restart=document.querySelector(".restart") 
+let winner = document.querySelector(".winner");
 let cell = 0; 
 let winningArray = [ 
 [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
@@ -87,20 +88,20 @@ let squares = document.querySelectorAll(".board div")
 for (let i = 0; i < winningArray.length; i++){
 let square = winningArray[i]
 if(square.every(j =>squares[j].classList.contains("player-one"))){
-  currentplayer.innerHTML = "Red Wins";
-  console.log("red wins")
-  setTimeout(() => restart.style.display="flex", 500)
+  currentPlayer.innerHTML = player;
+  winner.innerHTML = "Red Wins";
+  reset();
+  
 } else if (square.every(j => squares[j].classList.contains("player-two"))){
   
- console.log("blue wins")
-  setTimeout(() => restart.style.display="flex", 500)
+ winner.innerHTML = "Blue Wins";
+  reset();
 }
   }
     }
 // currentPlayer.innerHTML = 
 function reset(){
-board.innerHTML = ""; 
+board.innerHTML = []; 
 init();
-checkWon();
-restart.style.display="none" 
+
 }
