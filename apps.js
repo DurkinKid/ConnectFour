@@ -2,7 +2,7 @@ let board=document.querySelector(".board")
 let player=document.querySelector(".player") 
 let playAgain=document.querySelector(".playAgain") 
 let restart=document.querySelector(".restart") 
-let box=0 
+let cell = 0; 
 let winningArray = [ 
 [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
 [34, 33, 32, 31], [14, 15, 16, 17], [27, 26, 25, 24], 
@@ -44,6 +44,8 @@ square.addEventListener("click",clickBox)
 
 function createBoard(){ 
 for(let i=0;i<49;i++){ 
+//creating one extra row below to add class name of "taken" 
+// to tell computer first the row above is free to place token
 let div =document.createElement("div") 
 div.setAttribute("data-id",i) 
 div.className = "square" 
@@ -57,25 +59,25 @@ board.appendChild(div)
 
 function clickBox(){ 
 let squares = document.querySelectorAll(".board div") 
-let click =parseInt(this.dataset.id) 
+let click = parseInt(this.dataset.id) 
 if( squares[click+7].classList.contains("taken") && !squares[click].classList.contains("taken")){ 
-if(currentPlayer===1){ 
-currentPlayer=2 
-player.innerHTML=currentPlayer
+if(currentPlayer === 1){ 
+currentPlayer = 2 
+player.innerHTML = currentPlayer
 this.className="player-one taken" 
 checkWon() 
 }else if(currentPlayer===2){ 
-currentPlayer=1 
-player.innerHTML=currentPlayer 
+currentPlayer = 1 
+player.innerHTML = currentPlayer 
 this.className="player-two taken" 
 checkWon() 
 } 
-if(box===42){ 
+if(cell === 42){ 
 setTimeout(()=>alert("boxes filled"),300)
 setTimeout(()=>restart.style.display="flex",500) 
 } 
 }else{
-alert("You cannot build on an empty space or on a space that has been built on")
+console.log("You cannot build on an empty space or on a space that has been built on");
 } 
 }
 //the checkWon function
