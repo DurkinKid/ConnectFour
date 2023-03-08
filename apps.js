@@ -33,7 +33,8 @@ let currentPlayer = 1;
 document.addEventListener("DOMContentLoaded", init)
 
 function init(){ 
-createBoard() 
+createBoard();
+winner.innerHTML = "";
 player.innerHTML = currentPlayer 
 rematch.addEventListener("click", reset) 
 let squares = document.querySelectorAll(".board div") 
