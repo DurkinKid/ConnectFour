@@ -1,3 +1,4 @@
+console.log(`main brain test`);
 let board = document.querySelector(".board") // selecting game-board HTML elements to use in the DOM 
 let player = document.querySelector(".player") // as above ^^^
 let rematch = document.querySelector(".restart") // as above ^^^
@@ -58,7 +59,7 @@ div.className="taken"
 
 function clickBox(){ // allowing "clicks" to happen on specific squares..
 let squares = document.querySelectorAll(".board div"); // setting squares equal to the HTML <div> tags created above
-let colNum = parseInt(this.dataset.id); // Identifying cell column number by passing its string oriiented value and returning it as an integer.  aka
+let colNum = parseInt(this.dataset.id); // Identifying cell column number by passing the square div tags string oriented value and returning it as an integer.  aka
 if (squares[colNum + 7].classList.contains("taken") && !squares[colNum].classList.contains("taken")){ // checking 7(int) columns to see if the squares 
 // contain a class of "taken"(true/false)
 if(currentPlayer === 1){ 
