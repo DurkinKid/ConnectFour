@@ -1,11 +1,10 @@
-console.log(`main brain test`);
 let board = document.querySelector(".board") // selecting game-board HTML elements to use in the DOM 
 let player = document.querySelector(".player") // as above ^^^
 let rematch = document.querySelector(".restart") // as above ^^^
 let restart = document.querySelector(".restart") // as above ^^^
 let winner = document.querySelector(".winner"); // as above ^^^
 let cell = 0; // state variable to tell which cell-integer to append the currentPlayer choices
-const winningArray = [ 
+const winningArray = [ // const winning array[i] to tell computer when game has been won
 [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
 [34, 33, 32, 31], [14, 15, 16, 17], [27, 26, 25, 24], 
 [21, 22, 23, 24], [20, 19, 18, 17], [28, 29, 30, 31], 
@@ -32,17 +31,18 @@ const winningArray = [
 ]; 
 let currentPlayer = 1; 
 document.addEventListener("DOMContentLoaded", init)
+
 function init(){ 
 createBoard();
-winner.innerHTML = "";
-player.innerHTML = currentPlayer 
+player.innerHTML = currentPlayer;
+winner.innerHTML = ""; 
 rematch.addEventListener("click", reset) 
 let squares = document.querySelectorAll(".board div") 
 Array.from(squares).forEach(square => { 
 square.addEventListener("click", clickBox) // adding eventlistener to clickBox function to listen for a "click" forEach of the squares to be created within game-baord
 })
 }
-// createBoard function
+
 
 function createBoard(){ 
 for(let i = 0; i < 49; i++){ // looping through to create 49 spaces on game-board array.
@@ -55,9 +55,9 @@ if (i >= 42){
 div.className="taken" 
 } board.appendChild(div)
 }}
-//clickBox function
 
-function clickBox(){ // allowing "clicks" to happen on specific squares..
+
+function clickBox(square){ // allowing "clicks" to happen on specific squares..
 let squares = document.querySelectorAll(".board div"); // setting squares equal to the HTML <div> tags created above
 let colNum = parseInt(this.dataset.id); // Identifying cell column number by passing the square div tags string oriented value and returning it as an integer.  aka
 if (squares[colNum + 7].classList.contains("taken") && !squares[colNum].classList.contains("taken")){ // checking 7(int) columns to see if the squares 
@@ -66,22 +66,18 @@ if(currentPlayer === 1){
 currentPlayer = 2 
 player.innerHTML = currentPlayer
 this.className = "player-one taken" 
- 
-}else if(currentPlayer === 2){ 
+ } else if (currentPlayer === 2){ 
 currentPlayer = 1 
 player.innerHTML = currentPlayer 
 this.className = "player-two taken" 
+} if (cell === 42){ 
 
-} 
-if(cell === 42){ 
-reset();
 } 
 }else{
 console.log("You cannot build on an empty space or on a space that has been built on");
 } 
 checkWon();
 }
-//the checkWon function
 
 function checkWon(){
 let squares = document.querySelectorAll(".board div")
@@ -91,13 +87,14 @@ if(square.every(j => squares[j].classList.contains("player-one"))){
 currentPlayer.innerHTML = player;
 winner.innerHTML = "Red Wins";
 } else if (square.every(j => squares[j].classList.contains("player-two"))){
-winner.innerHTML = "Blue Wins"
+winner.innerHTML = "Blue Wins";
 }
 }}
 
 function reset(){
-board.innerHTML = []; 
+board.innerHTML = [];
 winner.innerHTML = "";
+player.innerHTML = currentPlayer;
 init();
 }
 
