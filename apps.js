@@ -29,10 +29,10 @@ const winningArray = [ // const winning array[i] to tell computer when game has 
 [8, 15, 22, 29], [9, 16, 23, 30], [10, 17, 24, 31], 
 [11, 18, 25, 32], [12, 19, 26, 33], [13, 20, 27, 34] 
 ]; 
-let currentPlayer = 1; 
+let currentPlayer = 1; // declaring current player variable to use in place of player1 and player2
 document.addEventListener("DOMContentLoaded", init)
 
-function init(){ 
+function init(){ // initializing game board
 createBoard();
 player.innerHTML = currentPlayer;
 winner.innerHTML = ""; 
