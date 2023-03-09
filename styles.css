@@ -15,6 +15,7 @@ body {
     height: 100vh;
     margin: 0 auto;
     text-align: center;
+    
 }
 .board {  
     display: grid;
@@ -54,5 +55,11 @@ align-items: center;
 }
 
 .currentPlayer {
-    background-color: red;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.winner {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
 }

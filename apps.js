@@ -1,10 +1,10 @@
-let board = document.querySelector(".board") 
-let player = document.querySelector(".player") 
-let rematch = document.querySelector(".restart") 
-let restart = document.querySelector(".restart") 
-let winner = document.querySelector(".winner");
-let cell = 0; 
-let winningArray = [ 
+let board = document.querySelector(".board") // selecting game-board HTML elements to use in the DOM 
+let player = document.querySelector(".player") // as above ^^^
+let rematch = document.querySelector(".restart") // as above ^^^
+let restart = document.querySelector(".restart") // as above ^^^
+let winner = document.querySelector(".winner"); // as above ^^^
+let cell = 0; // state variable to tell which cell-integer to append the currentPlayer choices
+const winningArray = [ 
 [0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10], 
 [34, 33, 32, 31], [14, 15, 16, 17], [27, 26, 25, 24], 
 [21, 22, 23, 24], [20, 19, 18, 17], [28, 29, 30, 31], 
@@ -31,7 +31,6 @@ let winningArray = [
 ]; 
 let currentPlayer = 1; 
 document.addEventListener("DOMContentLoaded", init)
-
 function init(){ 
 createBoard();
 winner.innerHTML = "";
@@ -39,40 +38,38 @@ player.innerHTML = currentPlayer
 rematch.addEventListener("click", reset) 
 let squares = document.querySelectorAll(".board div") 
 Array.from(squares).forEach(square => { 
-square.addEventListener("click", clickBox)
+square.addEventListener("click", clickBox) // adding eventlistener to clickBox function to listen for a "click" forEach of the squares to be created within game-baord
 })
 }
 // createBoard function
 
 function createBoard(){ 
-for(let i=0;i<49;i++){ 
+for(let i = 0; i < 49; i++){ // looping through to create 49 spaces on game-board array.
 //creating one extra row below to add class name of "taken" 
 // to tell computer first the row above is free to place token
-let div =document.createElement("div") 
-div.setAttribute("data-id",i) 
+let div = document.createElement("div") 
+div.setAttribute("data-id", i) // setting the created div tag elements id = the divs index number within its parents array (game-board)
 div.className = "square" 
-if (i>=42){ 
+if (i >= 42){ 
 div.className="taken" 
-} 
-board.appendChild(div) 
-} 
-}
+} board.appendChild(div)
+}}
 //clickBox function
 
-function clickBox(){ 
-let squares = document.querySelectorAll(".board div");
-let click = parseInt(this.dataset.id);
-
-if (squares[click + 7].classList.contains("taken") && !squares[click].classList.contains("taken")){ 
+function clickBox(){ // allowing "clicks" to happen on specific squares..
+let squares = document.querySelectorAll(".board div"); // setting squares equal to the HTML <div> tags created above
+let colNum = parseInt(this.dataset.id); // Identifying cell column number by passing its string oriiented value and returning it as an integer.  aka
+if (squares[colNum + 7].classList.contains("taken") && !squares[colNum].classList.contains("taken")){ // checking 7(int) columns to see if the squares 
+// contain a class of "taken"(true/false)
 if(currentPlayer === 1){ 
 currentPlayer = 2 
 player.innerHTML = currentPlayer
-this.className="player-one taken" 
+this.className = "player-one taken" 
  
-}else if(currentPlayer===2){ 
+}else if(currentPlayer === 2){ 
 currentPlayer = 1 
 player.innerHTML = currentPlayer 
-this.className="player-two taken" 
+this.className = "player-two taken" 
 
 } 
 if(cell === 42){ 
@@ -89,15 +86,19 @@ function checkWon(){
 let squares = document.querySelectorAll(".board div")
 for (let i = 0; i < winningArray.length; i++){
 let square = winningArray[i]
-if(square.every(j =>squares[j].classList.contains("player-one"))){
+if(square.every(j => squares[j].classList.contains("player-one"))){
 currentPlayer.innerHTML = player;
 winner.innerHTML = "Red Wins";
 } else if (square.every(j => squares[j].classList.contains("player-two"))){
-    winner.innerHTML = "Blue Wins"
+winner.innerHTML = "Blue Wins"
 }
 }}
 
 function reset(){
 board.innerHTML = []; 
+winner.innerHTML = "";
 init();
 }
+
+
+
