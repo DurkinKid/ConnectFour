@@ -19,3 +19,6 @@ An MVP representation of a childhood-favorite where the players take turns light
 TECHNOLOGIES USED:
     HTML, CSS, and javaScript are utilized in this project and produced via Mac.
 
+<link rel="game-link" href="https://durkinkid.github.io/ConnectFour/">
+
+NEXT STEPS : Adding automated cpu choice for more competetive experience and fixing "draw" feature.
