@@ -15,3 +15,6 @@ An MVP representation of a childhood-favorite where the players take turns light
 
 5. Once the computer reads the function stating what determines a winner to be "true", the browser will declare a winner message.
     5a. Else, if no winner is declared a “draw” message will appear and result in a rematch.
+
+TECHNOLOGIES USED:
+    HTML, CSS, and javaScript are utilized in this project and produced via Mac.
