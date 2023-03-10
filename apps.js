@@ -62,10 +62,10 @@ let squares = document.querySelectorAll(".board div"); // setting squares equal 
 let colNum = parseInt(this.dataset.id); // Identifying cell column number by passing the square div tags string oriented value and returning it as an integer.  aka
 if (squares[colNum + 7].classList.contains("taken") && !squares[colNum].classList.contains("taken")){ // checking 7(int) columns to see if the squares 
 // contain a class of "taken"(true/false)
-if(currentPlayer === 1){ 
+if(currentPlayer === 1){  // if current player is 1 and the click has occured, swithcs to player 2 turn to listen for another click
 currentPlayer = 2 
 player.innerHTML = currentPlayer
-this.className = "player-one taken" 
+this.className = "player-one taken" // appending "player-one" and "taken" classes to the square in colum to signify red occupies the space
  } else if (currentPlayer === 2){ 
 currentPlayer = 1 
 player.innerHTML = currentPlayer 
@@ -79,23 +79,23 @@ console.log("You cannot build on an empty space or on a space that has been buil
 checkWon();
 }
 
-function checkWon(){
-let squares = document.querySelectorAll(".board div")
+function checkWon(){ // check if board contains any winning arrays from state.
+let squares = document.querySelectorAll(".board div") // initializing squares on baord to match agianst winning arrays in state
 for (let i = 0; i < winningArray.length; i++){
 let square = winningArray[i]
-if(square.every(j => squares[j].classList.contains("player-one"))){
-currentPlayer.innerHTML = player;
+if(square.every(j => squares[j].classList.contains("player-one"))){ // checking every square element for class = "player-one",
+currentPlayer.innerHTML = player; // if true, player 1(red) wins
 winner.innerHTML = "Red Wins";
-} else if (square.every(j => squares[j].classList.contains("player-two"))){
-winner.innerHTML = "Blue Wins";
+} else if (square.every(j => squares[j].classList.contains("player-two"))){ // checking for every square element for class = "player-two",
+winner.innerHTML = "Blue Wins"; // if true, player-two(blue) wins
 }
 }}
 
-function reset(){
-board.innerHTML = [];
-winner.innerHTML = "";
-player.innerHTML = currentPlayer;
-init();
+function reset(){ // listener function for when click is heard on HTML rematch element
+board.innerHTML = []; // clearing the boards array to new game status
+winner.innerHTML = ""; // resetting winner html tag that pops up after game is won
+player.innerHTML = currentPlayer; // sets current player to next player (losers move first next game)
+init(); // calls init to reinitialize state
 }
 
 

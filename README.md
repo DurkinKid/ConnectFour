@@ -18,3 +18,4 @@ An MVP representation of a childhood-favorite where the players take turns light
 
 TECHNOLOGIES USED:
     HTML, CSS, and javaScript are utilized in this project and produced via Mac.
+
